@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Hicham MECHQOQ | Scientific CV</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            800: '#0f172a',
+                            900: '#0b0f19',
+                            950: '#05070d',
+                        },
+                        emerald: {
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                        },
+                        teal: {
+                            400: '#2dd4bf',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Smooth Theme Transitions */
+        * {
+            transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Dark Mode Theme Classes */
+        html.dark body {
+            background-color: #0b0f19;
+            color: #f1f5f9;
+        }
+
+        html.dark .glass-card {
+            background: rgba(15, 23, 42, 0.78);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        html.dark .glass-card:hover {
+            border-color: rgba(16, 185, 129, 0.35);
+            box-shadow: 0 15px 35px -10px rgba(16, 185, 129, 0.2);
+        }
+
+        html.dark .header-glass {
+            background: rgba(11, 15, 25, 0.85);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        html.dark .card-subtext {
+            color: #94a3b8;
+        }
+
+        html.dark .card-title {
+            color: #ffffff;
+        }
+
+        /* Light Mode Theme Classes */
+        html.light body {
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+
+        html.light .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            box-shadow: 0 10px 25px -5px rgba(148, 163, 184, 0.12);
+        }
+
+        html.light .glass-card:hover {
+            border-color: rgba(16, 185, 129, 0.4);
+            box-shadow: 0 15px 35px -10px rgba(16, 185, 129, 0.18);
+        }
+
+        html.light .header-glass {
+            background: rgba(255, 255, 255, 0.88);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+        html.light .card-subtext {
+            color: #475569;
+        }
+
+        html.light .card-title {
+            color: #0f172a;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        html.dark ::-webkit-scrollbar-track {
+            background: #0b0f19;
+        }
+        html.light ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #94a3b8;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #10b981;
+        }
+
+        /* Print CSS Override */
+        @media print {
+            body {
+                background: #ffffff !important;
+                color: #000000 !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .glass-card {
+                background: none !important;
+                border: 1px solid #cbd5e1 !important;
+                color: #000000 !important;
+                box-shadow: none !important;
+            }
+            .text-emerald-400, .text-emerald-500, .text-teal-400, .text-teal-500 {
+                color: #047857 !important;
+            }
+            #molecules-canvas {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="selection:bg-emerald-500 selection:text-white relative min-h-screen">
+
+    <!-- Interactive Molecule Canvas Background -->
+    <canvas id="molecules-canvas" class="fixed inset-0 pointer-events-none z-0 opacity-50 dark:opacity-40"></canvas>
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-50 header-glass rounded-none px-4 lg:px-8 py-3 no-print backdrop-blur-md">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <!-- Brand -->
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center text-slate-950 font-extrabold text-lg shadow-md group-hover:scale-105 transition-transform">
+                    HM
+                </div>
+                <div>
+                    <span class="font-bold text-lg tracking-tight block leading-none card-title">Dr. Hicham MECHQOQ</span>
+                    <span class="text-xs text-emerald-600 dark:text-emerald-400 font-mono font-semibold">Neuropharmacologist & Phytochemist</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-600 dark:text-slate-300">
+                <a href="#about" class="hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors">About</a>
+                <a href="#metrics" class="hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors">Metrics</a>
+                <a href="#experience" class="hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors">Experience</a>
+                <a href="#skills" class="hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors">Expertise</a>
+                <a href="#publications" class="hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors">Publications</a>
+                <a href="#education" class="hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors">Education</a>
+            </nav>
+
+            <!-- Actions: Theme Toggle & PDF Print -->
+            <div class="flex items-center space-x-3">
+                <!-- Theme Toggle Button -->
+                <button id="theme-toggle" type="button" aria-label="Toggle Theme" class="p-2 rounded-xl bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-300 dark:hover:bg-slate-700 border border-slate-300 dark:border-slate-700 flex items-center justify-center transition-all shadow-sm">
+                    <i id="theme-toggle-dark-icon" class="fas fa-moon text-sm hidden"></i>
+                    <i id="theme-toggle-light-icon" class="fas fa-sun text-sm text-amber-400 hidden"></i>
+                </button>
+
+                <!-- Export PDF Button -->
+                <button onclick="window.print()" class="px-3 py-2 rounded-xl text-xs font-semibold bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-slate-700 flex items-center space-x-2 transition-all shadow-sm">
+                    <i class="fas fa-print"></i>
+                    <span class="hidden sm:inline">Export PDF</span>
+                </button>
+
+                <!-- Contact Button -->
+                <a href="mailto:h.mechqoq@gmail.com" class="px-3.5 py-2 rounded-xl text-xs font-semibold bg-emerald-500 hover:bg-emerald-400 text-slate-950 flex items-center space-x-2 shadow-md shadow-emerald-500/20 transition-all">
+                    <i class="fas fa-paper-plane"></i>
+                    <span>Contact</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
+
+        <!-- Hero / Profile Header Section -->
+        <section id="about" class="glass-card p-6 lg:p-10 relative overflow-hidden">
+            <!-- Glow Accents -->
+            <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -left-20 -top-20 w-80 h-80 bg-teal-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="flex flex-col lg:flex-row items-center lg:items-start gap-8 relative z-10">
+                <!-- Avatar Profile Picture with Multiple Relative & Fallback Links -->
+                <div class="relative shrink-0">
+                    <div class="w-40 h-40 sm:w-48 sm:h-48 rounded-2xl overflow-hidden ring-4 ring-emerald-500/30 shadow-xl relative bg-slate-200 dark:bg-slate-800">
+                        <img 
+                            id="profile-img"
+                            src="./profile.jpg" 
+                            alt="Dr. Hicham Mechqoq" 
+                            class="w-full h-full object-cover" 
+                            onerror="handleImageFallback(this)"
+                        >
+                    </div>
+                    <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-white/90 dark:bg-slate-900/90 border border-emerald-500/40 text-emerald-700 dark:text-emerald-400 px-3 py-1 rounded-full text-xs font-mono font-semibold flex items-center space-x-1 whitespace-nowrap backdrop-blur-md shadow-md">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        <span>Open to Research Mobility</span>
+                    </div>
+                </div>
+
+                <!-- Bio & Key Meta -->
+                <div class="flex-1 text-center lg:text-left space-y-4">
+                    <div>
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 dark:text-emerald-400 text-xs font-mono mb-3">
+                            <i class="fas fa-dna"></i> Experimental Neuropharmacology & Phytochemistry
+                        </div>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight card-title">
+                            Dr. MECHQOQ Hicham
+                        </h1>
+                        <p class="text-slate-600 dark:text-slate-400 font-medium text-base sm:text-lg mt-1">
+                            PhD in Biology • MSc Drug Discovery & Development (Experimental Pharmacology)
+                        </p>
+                    </div>
+
+                    <p class="card-subtext leading-relaxed text-sm sm:text-base max-w-3xl">
+                        Interdisciplinary researcher with comprehensive experience bridging <strong class="text-emerald-600 dark:text-emerald-400 font-semibold">in vivo rodent models</strong> (UCMS, behavioral/cognitive paradigms), <strong class="text-teal-600 dark:text-teal-400 font-semibold">computational pharmacology</strong> (molecular docking, virtual screening, ADMET), and <strong class="text-emerald-600 dark:text-emerald-400 font-semibold">phytochemical purification</strong> (CPC, MPLC, HPLC-MS, NMR) across institutions in Poland, France, Greece, Portugal, and Morocco.
+                    </p>
+
+                    <!-- Contact & Identifier Chips -->
+                    <div class="pt-2 flex flex-wrap justify-center lg:justify-start gap-2.5 text-xs">
+                        <a href="mailto:h.mechqoq@gmail.com" class="px-3 py-2 rounded-lg bg-slate-100 dark:bg-slate-800/80 hover:bg-slate-200 dark:hover:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 flex items-center gap-2 transition-all">
+                            <i class="fas fa-envelope text-emerald-500"></i>
+                            <span>h.mechqoq@gmail.com</span>
+                        </a>
+                        <a href="tel:+212624166337" class="px-3 py-2 rounded-lg bg-slate-100 dark:bg-slate-800/80 hover:bg-slate-200 dark:hover:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 flex items-center gap-2 transition-all">
+                            <i class="fas fa-phone text-emerald-500"></i>
+                            <span>+212 624 166 337</span>
+                        </a>
+                        <span class="px-3 py-2 rounded-lg bg-slate-100 dark:bg-slate-800/80 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 flex items-center gap-2">
+                            <i class="fas fa-map-marker-alt text-emerald-500"></i>
+                            <span>Kraków, Poland / Agadir, Morocco</span>
+                        </span>
+                        <a href="https://orcid.org/0000-0003-1116-0758" target="_blank" rel="noopener" class="px-3 py-2 rounded-lg bg-slate-100 dark:bg-slate-800/80 hover:bg-slate-200 dark:hover:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 flex items-center gap-2 transition-all">
+                            <i class="fab fa-orcid text-emerald-500"></i>
+                            <span class="font-mono">ORCID: 0000-0003-1116-0758</span>
+                        </a>
+                        <a href="https://www.scopus.com/authid/detail.uri?authorId=57222619445" target="_blank" rel="noopener" class="px-3 py-2 rounded-lg bg-slate-100 dark:bg-slate-800/80 hover:bg-slate-200 dark:hover:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 flex items-center gap-2 transition-all">
+                            <i class="fas fa-microscope text-emerald-500"></i>
+                            <span class="font-mono">Scopus ID: 57222619445</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scientific Metrics Dashboard -->
+        <section id="metrics" class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="glass-card p-5 text-center relative overflow-hidden group">
+                <div class="text-3xl sm:text-4xl font-extrabold text-emerald-600 dark:text-emerald-400 font-mono tracking-tight group-hover:scale-105 transition-transform" data-counter="13">
+                    0
+                </div>
+                <div class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mt-1">Peer-Reviewed Publications</div>
+                <div class="text-[10px] text-slate-400 dark:text-slate-500 mt-0.5">Scopus / Web of Science</div>
+            </div>
+
+            <div class="glass-card p-5 text-center relative overflow-hidden group">
+                <div class="text-3xl sm:text-4xl font-extrabold text-teal-600 dark:text-teal-400 font-mono tracking-tight group-hover:scale-105 transition-transform" data-counter="454">
+                    0
+                </div>
+                <div class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mt-1">Citations</div>
+                <div class="text-[10px] text-slate-400 dark:text-slate-500 mt-0.5">Scopus Verified</div>
+            </div>
+
+            <div class="glass-card p-5 text-center relative overflow-hidden group">
+                <div class="text-3xl sm:text-4xl font-extrabold text-emerald-600 dark:text-emerald-400 font-mono tracking-tight group-hover:scale-105 transition-transform" data-counter="9">
+                    0
+                </div>
+                <div class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mt-1">h-Index</div>
+                <div class="text-[10px] text-slate-400 dark:text-slate-500 mt-0.5">Scopus Verified</div>
+            </div>
+
+            <div class="glass-card p-5 text-center relative overflow-hidden group">
+                <div class="text-3xl sm:text-4xl font-extrabold text-teal-600 dark:text-teal-400 font-mono tracking-tight group-hover:scale-105 transition-transform" data-counter="5">
+                    0
+                </div>
+                <div class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mt-1">International Fellowships</div>
+                <div class="text-[10px] text-slate-400 dark:text-slate-500 mt-0.5">FR, GR, PT, IT, PL</div>
+            </div>
+        </section>
+
+        <!-- Technical Expertise & Skills Matrix -->
+        <section id="skills" class="space-y-6">
+            <div class="flex items-center space-x-3">
+                <div class="w-3 h-8 bg-emerald-500 rounded-full"></div>
+                <h2 class="text-2xl font-bold card-title tracking-tight">Technical Expertise & Competences</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Neuropharmacology -->
+                <div class="glass-card p-6 space-y-4 border-t-4 border-t-emerald-500">
+                    <div class="flex items-center space-x-3 text-emerald-600 dark:text-emerald-400">
+                        <i class="fas fa-brain text-xl"></i>
+                        <h3 class="font-bold text-lg card-title">Neuropharmacology</h3>
+                    </div>
+                    <ul class="text-xs sm:text-sm card-subtext space-y-2 list-disc list-inside">
+                        <li>In vivo rodent models (UCMS, learning, memory, anxiety, locomotor paradigms).</li>
+                        <li>Stereotaxic surgery assistance & animal care.</li>
+                        <li>qPCR gene profiling (neuroinflammatory, apoptotic, synaptic plasticity markers).</li>
+                        <li>Western blot protein expression analysis.</li>
+                        <li>Microglia & neuroblastoma cell culture, AAV biosensor construct validation.</li>
+                    </ul>
+                </div>
+
+                <!-- Computational Pharmacology -->
+                <div class="glass-card p-6 space-y-4 border-t-4 border-t-teal-500">
+                    <div class="flex items-center space-x-3 text-teal-600 dark:text-teal-400">
+                        <i class="fas fa-laptop-code text-xl"></i>
+                        <h3 class="font-bold text-lg card-title">Computational Drug Design</h3>
+                    </div>
+                    <ul class="text-xs sm:text-sm card-subtext space-y-2 list-disc list-inside">
+                        <li>Virtual Screening: PyRx, AutoDock MGLTools, CB-Dock.</li>
+                        <li>Molecular Docking: AutoDock Vina/4, Glide (Schrödinger), SYBYL-X.</li>
+                        <li>Molecular Dynamics (GROMACS) & Homology Modelling (SwissModel).</li>
+                        <li>ADMET, toxicity, CLogP, solubility & druglikeness predictions.</li>
+                        <li>Network Analysis (Cytoscape) & PK/PD modelling (PK-Sim, MoBi).</li>
+                    </ul>
+                </div>
+
+                <!-- Phytochemistry & Assays -->
+                <div class="glass-card p-6 space-y-4 border-t-4 border-t-emerald-500">
+                    <div class="flex items-center space-x-3 text-emerald-600 dark:text-emerald-400">
+                        <i class="fas fa-flask text-xl"></i>
+                        <h3 class="font-bold text-lg card-title">Phytochemistry & Assays</h3>
+                    </div>
+                    <ul class="text-xs sm:text-sm card-subtext space-y-2 list-disc list-inside">
+                        <li>Fractionation & Purification: CPC, MPLC, Silica CC, Centrifugation.</li>
+                        <li>Analytical Instrumentation: HPLC-MS, GC-MS, NMR, IR, HP-TLC.</li>
+                        <li>Green Extraction: Supercritical Fluid, Microwave & Ultrasound-assisted.</li>
+                        <li>Functional Assays: Tyrosinase, Collagenase, Elastase, Xanthine Oxidase.</li>
+                    </ul>
+                </div>
+
+                <!-- Biochemistry & Molecular Biology -->
+                <div class="glass-card p-6 space-y-4 border-t-4 border-t-teal-500">
+                    <div class="flex items-center space-x-3 text-teal-600 dark:text-teal-400">
+                        <i class="fas fa-vial text-xl"></i>
+                        <h3 class="font-bold text-lg card-title">Biochemistry & Biology</h3>
+                    </div>
+                    <ul class="text-xs sm:text-sm card-subtext space-y-2 list-disc list-inside">
+                        <li>PCR-based DNA/RNA amplification & gene expression profiling.</li>
+                        <li>Protein sequencing (Edman degradation) & Electrophoresis.</li>
+                        <li>ELISA & Western Blotting immunoassays.</li>
+                        <li>pGLO genetic transformation (E. coli expression).</li>
+                    </ul>
+                </div>
+
+                <!-- Data Analysis -->
+                <div class="glass-card p-6 space-y-4 border-t-4 border-t-emerald-500">
+                    <div class="flex items-center space-x-3 text-emerald-600 dark:text-emerald-400">
+                        <i class="fas fa-chart-line text-xl"></i>
+                        <h3 class="font-bold text-lg card-title">Data Analysis & Stats</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2 pt-2">
+                        <span class="px-2.5 py-1 rounded bg-slate-200 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-xs font-mono text-emerald-600 dark:text-emerald-400 font-semibold">GraphPad Prism</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-200 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-xs font-mono text-emerald-600 dark:text-emerald-400 font-semibold">R Studio</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-200 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-xs font-mono text-emerald-600 dark:text-emerald-400 font-semibold">SPSS</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-200 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-xs font-mono text-emerald-600 dark:text-emerald-400 font-semibold">XLSTAT</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-200 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-xs font-mono text-emerald-600 dark:text-emerald-400 font-semibold">Statistica</span>
+                    </div>
+                </div>
+
+                <!-- Languages -->
+                <div class="glass-card p-6 space-y-4 border-t-4 border-t-teal-500">
+                    <div class="flex items-center space-x-3 text-teal-600 dark:text-teal-400">
+                        <i class="fas fa-globe text-xl"></i>
+                        <h3 class="font-bold text-lg card-title">Languages</h3>
+                    </div>
+                    <div class="space-y-2 text-xs sm:text-sm">
+                        <div class="flex justify-between items-center">
+                            <span class="card-subtext font-medium">English</span>
+                            <span class="text-emerald-600 dark:text-emerald-400 font-mono font-semibold">Fluent</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="card-subtext font-medium">French</span>
+                            <span class="text-emerald-600 dark:text-emerald-400 font-mono font-semibold">Fluent</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="card-subtext font-medium">Arabic</span>
+                            <span class="text-emerald-600 dark:text-emerald-400 font-mono font-semibold">Native</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="card-subtext font-medium">Spanish</span>
+                            <span class="text-slate-500 font-mono">Good</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="card-subtext font-medium">Greek</span>
+                            <span class="text-slate-500 font-mono">Average</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional & Research Experience Timeline -->
+        <section id="experience" class="space-y-6">
+            <div class="flex items-center space-x-3">
+                <div class="w-3 h-8 bg-emerald-500 rounded-full"></div>
+                <h2 class="text-2xl font-bold card-title tracking-tight">Professional & Research Experience</h2>
+            </div>
+
+            <div class="space-y-6 relative before:absolute before:inset-0 before:left-3.5 before:w-0.5 before:bg-slate-300 dark:before:bg-slate-800">
+
+                <!-- Item 1 -->
+                <div class="relative pl-10 group">
+                    <div class="absolute left-1.5 top-1.5 w-4 h-4 rounded-full bg-emerald-500 ring-4 ring-slate-100 dark:ring-slate-900 group-hover:scale-125 transition-transform"></div>
+                    <div class="glass-card p-6 space-y-3">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                            <h3 class="text-lg font-bold card-title">Graduate Researcher — Master's Thesis Project</h3>
+                            <span class="text-xs font-mono text-emerald-700 dark:text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded border border-emerald-500/20 w-fit font-semibold">2024 – 2026</span>
+                        </div>
+                        <div class="text-sm font-medium text-slate-500 dark:text-slate-400">
+                            Faculty of Pharmacy, Jagiellonian University • Kraków, Poland
+                        </div>
+                        <ul class="text-xs sm:text-sm card-subtext space-y-1.5 list-disc list-inside">
+                            <li>Investigated mechanism of action of novel 5-HT1A receptor antagonists in vivo and downstream signaling in UCMS mouse models (sucrose preference test).</li>
+                            <li>Assisted stereotaxic surgeries and conducted rodent behavioral paradigms (anxiety-like, memory, locomotion).</li>
+                            <li>Executed qPCR gene profiling (neuroinflammatory, apoptotic, synaptic plasticity) and Western blot protein expression.</li>
+                            <li>Performed microglia & neuroblastoma cell cultures with pilot in vitro AAV biosensor construct validation.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="relative pl-10 group">
+                    <div class="absolute left-1.5 top-1.5 w-4 h-4 rounded-full bg-teal-500 ring-4 ring-slate-100 dark:ring-slate-900 group-hover:scale-125 transition-transform"></div>
+                    <div class="glass-card p-6 space-y-3">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                            <h3 class="text-lg font-bold card-title">Research Mobility & Invited Teaching Visits</h3>
+                            <span class="text-xs font-mono text-teal-700 dark:text-teal-400 bg-teal-500/10 px-2.5 py-1 rounded border border-teal-500/20 w-fit font-semibold">2025 – 2026</span>
+                        </div>
+                        <div class="text-sm font-medium text-slate-500 dark:text-slate-400">
+                            University of Lisbon (Portugal) • University of Catania (Italy) • Jagiellonian University (Poland)
+                        </div>
+                        <ul class="text-xs sm:text-sm card-subtext space-y-1.5 list-disc list-inside">
+                            <li><strong>Invited Teaching (02/2026):</strong> Delivered lectures & practicals on "Brain Drug Screening" under Erasmus+ Cooperation Partnership.</li>
+                            <li><strong>Research Mobility (Lisbon, 06/2026):</strong> BRaining Project (WP3) at Faculty of Medicine, University of Lisbon.</li>
+                            <li><strong>Erasmus+ BIP (Catania, 07/2025):</strong> "A Roadmap to Modern Drug Discovery" including pGLO genetic transformation.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="relative pl-10 group">
+                    <div class="absolute left-1.5 top-1.5 w-4 h-4 rounded-full bg-slate-400 dark:bg-slate-700 ring-4 ring-slate-100 dark:ring-slate-900 group-hover:scale-125 transition-transform"></div>
+                    <div class="glass-card p-6 space-y-3">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                            <h3 class="text-lg font-bold card-title">Doctoral Researcher & Academic Teaching</h3>
+                            <span class="text-xs font-mono text-slate-600 dark:text-slate-400 bg-slate-200 dark:bg-slate-800 px-2.5 py-1 rounded border border-slate-300 dark:border-slate-700 w-fit font-semibold">2017 – 2024</span>
+                        </div>
+                        <div class="text-sm font-medium text-slate-500 dark:text-slate-400">
+                            Faculty of Science / ESEF, Ibn Zohr University • Agadir, Morocco
+                        </div>
+                        <ul class="text-xs sm:text-sm card-subtext space-y-1.5 list-disc list-inside">
+                            <li>Taught "Biology and Geology" (ESEF, 180h) and "Semiochemicals" (Chemical Ecology module, 18h).</li>
+                            <li>Optimized HPLC-MS preparative steps and developed in vitro functional enzyme inhibition assays (tyrosinase, collagenase, elastase).</li>
+                            <li>Executed molecular docking and virtual screening for natural bioactive molecules from endemic Moroccan species.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="relative pl-10 group">
+                    <div class="absolute left-1.5 top-1.5 w-4 h-4 rounded-full bg-teal-500 ring-4 ring-slate-100 dark:ring-slate-900 group-hover:scale-125 transition-transform"></div>
+                    <div class="glass-card p-6 space-y-3">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                            <h3 class="text-lg font-bold card-title">International Research Secondments</h3>
+                            <span class="text-xs font-mono text-teal-700 dark:text-teal-400 bg-teal-500/10 px-2.5 py-1 rounded border border-teal-500/20 w-fit font-semibold">2017 – 2020</span>
+                        </div>
+                        <div class="text-sm font-medium text-slate-500 dark:text-slate-400">
+                            Université Paris-Descartes (France) • University of Athens (Greece)
+                        </div>
+                        <ul class="text-xs sm:text-sm card-subtext space-y-1.5 list-disc list-inside">
+                            <li><strong>Paris-Descartes (2019-2020):</strong> Fractionation, CPC, MPLC, HPLC-MS and structural NMR elucidation.</li>
+                            <li><strong>University of Athens (3 Secondments, 2017-2019):</strong> Bioguided silica CC, supercritical fluid & microwave extraction, xanthine oxidase and antibacterial assays.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Searchable & Filterable Publications Section -->
+        <section id="publications" class="space-y-6">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div class="flex items-center space-x-3">
+                    <div class="w-3 h-8 bg-emerald-500 rounded-full"></div>
+                    <h2 class="text-2xl font-bold card-title tracking-tight">Peer-Reviewed Publications</h2>
+                </div>
+
+                <!-- Controls: Filter Tabs & Search Bar -->
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <!-- Filter Tabs -->
+                    <div class="flex rounded-lg bg-slate-200 dark:bg-slate-900 p-1 border border-slate-300 dark:border-slate-800 text-xs font-medium">
+                        <button onclick="filterPubs('all')" class="pub-tab active px-3 py-1 rounded-md bg-emerald-500 text-slate-950 font-bold transition-all">All</button>
+                        <button onclick="filterPubs('first')" class="pub-tab px-3 py-1 rounded-md text-slate-600 dark:text-slate-400 hover:text-emerald-500 transition-all">First Author</button>
+                        <button onclick="filterPubs('review')" class="pub-tab px-3 py-1 rounded-md text-slate-600 dark:text-slate-400 hover:text-emerald-500 transition-all">Reviews</button>
+                    </div>
+
+                    <!-- Search Input -->
+                    <div class="relative w-full sm:w-60">
+                        <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+                        <input type="text" id="pub-search" placeholder="Search title or journal..." class="w-full bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg pl-9 pr-3 py-1.5 text-xs card-title placeholder-slate-400 focus:outline-none focus:border-emerald-500 transition-colors">
+                    </div>
+                </div>
+            </div>
+
+            <div id="pub-list" class="space-y-4">
+
+                <!-- Pub 1 -->
+                <div class="pub-card glass-card p-5 space-y-2 border-l-4 border-l-emerald-500" data-category="review">
+                    <div class="flex items-start justify-between gap-2">
+                        <span class="text-xs font-mono text-emerald-600 dark:text-emerald-400 font-semibold uppercase">Pharmaceuticals (MDPI) • 2026</span>
+                        <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20 font-semibold">Submitted / Review</span>
+                    </div>
+                    <h3 class="text-base font-bold card-title">
+                        Working memory impairment in animal models of schizophrenia: concepts, mechanisms, models, and therapeutic perspectives.
+                    </h3>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">
+                        <u class="card-title font-semibold">Mechqoq H.</u>, Jędruszczak J., Struś M., Salaciak K., Lustyk K., Pytka K.
+                    </p>
+                    <p class="text-xs card-subtext italic pt-1">
+                        Consolidates rodent cognitive models directly transferable to fiber-photometry-based behavioral pain & OIH phenotyping.
+                    </p>
+                </div>
+
+                <!-- Pub 2 -->
+                <div class="pub-card glass-card p-5 space-y-2 border-l-4 border-l-teal-500" data-category="research">
+                    <div class="flex items-start justify-between gap-2">
+                        <span class="text-xs font-mono text-teal-600 dark:text-teal-400 font-semibold uppercase">Journal of Neurochemistry • 2026</span>
+                        <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-teal-500/10 text-teal-700 dark:text-teal-300 border border-teal-500/20 font-semibold">Submitted</span>
+                    </div>
+                    <h3 class="text-base font-bold card-title">
+                        Sigma-1 receptor activation by the multimodal ligand HBK-14 protects against long-term recognition memory impairment during NMDA receptor hypofunction.
+                    </h3>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">
+                        Lustyk K., Jagielska A., Sałaciak K., et al., <u class="card-title font-semibold">Mechqoq H.</u>, et al., Pytka K.
+                    </p>
+                </div>
+
+                <!-- Pub 3 -->
+                <div class="pub-card glass-card p-5 space-y-2 border-l-4 border-l-emerald-500" data-category="research">
+                    <div class="flex items-start justify-between gap-2">
+                        <span class="text-xs font-mono text-emerald-600 dark:text-emerald-400 font-semibold uppercase">Euro-Mediterranean Journal for Environmental Integration • 2025</span>
+                        <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-200 dark:bg-slate-800 card-title border border-slate-300 dark:border-slate-700 font-semibold">Published (pp. 1–21)</span>
+                    </div>
+                    <h3 class="text-base font-bold card-title">
+                        Insecticidal activity of wild and cultivated Lavandula mairei Humbert essential oils against Tribolium castaneum and prediction of potential action mechanisms through molecular docking analysis.
+                    </h3>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">
+                        El Hamdaoui A., <u class="card-title font-semibold">Mechqoq H.</u>, Oublid H., Hourfane S., El Yaagoubi M., El Aouad N., Msanda F.
+                    </p>
+                </div>
+
+                <!-- Pub 4 -->
+                <div class="pub-card glass-card p-5 space-y-2 border-l-4 border-l-emerald-500" data-category="review">
+                    <div class="flex items-start justify-between gap-2">
+                        <span class="text-xs font-mono text-emerald-600 dark:text-emerald-400 font-semibold uppercase">Plants (MDPI) • 2023</span>
+                        <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20 font-semibold">Open Access Review</span>
+                    </div>
+                    <h3 class="text-base font-bold card-title">
+                        A Comprehensive Review on Cannabis sativa Ethnobotany, Phytochemistry, Molecular Docking and Biological Activities.
+                    </h3>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">
+                        Hourfane S., <u class="card-title font-semibold">Mechqoq H.</u>, Bekkali B.Y., Rocha J.M., El Aouad N.
+                    </p>
+                </div>
+
+                <!-- Pub 5 -->
+                <div class="pub-card glass-card p-5 space-y-2 border-l-4 border-l-emerald-500" data-category="first">
+                    <div class="flex items-start justify-between gap-2">
+                        <span class="text-xs font-mono text-emerald-600 dark:text-emerald-400 font-semibold uppercase">Cosmetics (MDPI) • 2022</span>
+                        <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-emerald-500/20 text-emerald-800 dark:text-emerald-300 border border-emerald-500/30 font-bold">First Author</span>
+                    </div>
+                    <h3 class="text-base font-bold card-title">
+                        Phytochemical screening, in-vitro evaluation of the antioxidant and dermocosmetic activities of four Moroccan plants: Halimium antiatlanticum, Adenocarpus artemisiifolius, Pistacia lentiscus and Leonotis nepetifolia.
+                    </h3>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">
+                        <u class="card-title font-semibold">Mechqoq H.</u>, Hourfane S., El Yaagoubi M., El Hamdaoui A., Da Silva Almeida J.R.G., Rocha J.M., El Aouad N.
+                    </p>
+                </div>
+
+                <!-- Pub 6 -->
+                <div class="pub-card glass-card p-5 space-y-2 border-l-4 border-l-emerald-500" data-category="first">
+                    <div class="flex items-start justify-between gap-2">
+                        <span class="text-xs font-mono text-emerald-600 dark:text-emerald-400 font-semibold uppercase">Cosmetics (MDPI) • 2022</span>
+                        <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-emerald-500/20 text-emerald-800 dark:text-emerald-300 border border-emerald-500/30 font-bold">First Author</span>
+                    </div>
+                    <h3 class="text-base font-bold card-title">
+                        Molecular docking, tyrosinase, collagenase, and elastase inhibition activities of argan by-products.
+                    </h3>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">
+                        <u class="card-title font-semibold">Mechqoq H.</u>, Hourfane S., El Yaagoubi M., El Hamdaoui A., Da Silva Almeida J.R.G., Rocha J.M., El Aouad N.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Academic Education -->
+        <section id="education" class="space-y-6">
+            <div class="flex items-center space-x-3">
+                <div class="w-3 h-8 bg-emerald-500 rounded-full"></div>
+                <h2 class="text-2xl font-bold card-title tracking-tight">Academic Education</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                <!-- Master Poland -->
+                <div class="glass-card p-6 space-y-2 border-l-4 border-l-emerald-500">
+                    <span class="text-xs font-mono text-emerald-600 dark:text-emerald-400 font-bold">2024 – 2026</span>
+                    <h3 class="text-lg font-bold card-title">MSc Drug Discovery & Development</h3>
+                    <p class="text-xs font-semibold text-slate-500 dark:text-slate-400">Experimental Pharmacology Specialization</p>
+                    <p class="text-xs card-subtext">Faculty of Pharmacy, Jagiellonian University, Kraków, Poland</p>
+                </div>
+
+                <!-- PhD Morocco -->
+                <div class="glass-card p-6 space-y-2 border-l-4 border-l-teal-500">
+                    <span class="text-xs font-mono text-teal-600 dark:text-teal-400 font-bold">2017 – 2022</span>
+                    <h3 class="text-lg font-bold card-title">PhD in Biology</h3>
+                    <p class="text-xs font-semibold text-slate-500 dark:text-slate-400">Defended 25/03/2022</p>
+                    <p class="text-xs card-subtext">Faculty of Science, Ibn Zohr University, Agadir, Morocco</p>
+                    <p class="text-[11px] text-slate-400 italic pt-1">
+                        Thesis: Extraction optimization, in silico screening & dermocosmetic evaluation of argan oil & endemic plants.
+                    </p>
+                </div>
+
+                <!-- Advanced Course Portugal -->
+                <div class="glass-card p-6 space-y-2 border-l-4 border-l-slate-400 dark:border-l-slate-700">
+                    <span class="text-xs font-mono text-slate-500 dark:text-slate-400 font-bold">07/2021</span>
+                    <h3 class="text-lg font-bold card-title">PhD Programme Advanced Course</h3>
+                    <p class="text-xs font-semibold text-slate-500 dark:text-slate-400">Pharmaceutical Sciences</p>
+                    <p class="text-xs card-subtext">Faculty of Pharmacy, University of Coimbra, Portugal</p>
+                </div>
+
+                <!-- MSc Morocco -->
+                <div class="glass-card p-6 space-y-2 border-l-4 border-l-slate-400 dark:border-l-slate-700">
+                    <span class="text-xs font-mono text-slate-500 dark:text-slate-400 font-bold">2015 – 2017</span>
+                    <h3 class="text-lg font-bold card-title">MSc Fundamental Biology</h3>
+                    <p class="text-xs font-semibold text-slate-500 dark:text-slate-400">Natural Resources • Grade: Good</p>
+                    <p class="text-xs card-subtext">Faculty of Science, Ibn Zohr University, Agadir, Morocco</p>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="header-glass rounded-none border-x-0 border-b-0 border-t border-slate-300 dark:border-slate-800 text-center py-6 text-xs text-slate-500 mt-12 no-print">
+        <p>© 2026 Dr. MECHQOQ Hicham. All rights reserved.</p>
+    </footer>
+
+    <!-- Theme Switcher, Search/Filter & Particle Animation JavaScript -->
+    <script>
+        /* -------------------------------------------------------------
+           1. PROFILE IMAGE FALLBACK HANDLER
+        ------------------------------------------------------------- */
+        const fallbackImages = [
+            './profile.jpg',
+            './002. ID PIC (Blue).jpg',
+            '002. ID PIC (Blue).jpg',
+            'https://placehold.co/400x400/0f172a/10b981?text=Dr.+Mechqoq'
+        ];
+        let fallbackIndex = 0;
+
+        function handleImageFallback(img) {
+            fallbackIndex++;
+            if (fallbackIndex < fallbackImages.length) {
+                img.src = fallbackImages[fallbackIndex];
+            }
+        }
+
+        /* -------------------------------------------------------------
+           2. LIGHT / DARK THEME TOGGLE & LOCALSTORAGE
+        ------------------------------------------------------------- */
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const darkIcon = document.getElementById('theme-toggle-dark-icon');
+        const lightIcon = document.getElementById('theme-toggle-light-icon');
+
+        // Check stored theme or system preference
+        const userTheme = localStorage.getItem('color-theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        function applyTheme(isDark) {
+            if (isDark) {
+                document.documentElement.classList.add('dark');
+                document.documentElement.classList.remove('light');
+                darkIcon.classList.add('hidden');
+                lightIcon.classList.remove('hidden');
+                localStorage.setItem('color-theme', 'dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+                document.documentElement.classList.add('light');
+                lightIcon.classList.add('hidden');
+                darkIcon.classList.remove('hidden');
+                localStorage.setItem('color-theme', 'light');
+            }
+        }
+
+        if (userTheme === 'dark' || (!userTheme && systemPrefersDark)) {
+            applyTheme(true);
+        } else {
+            applyTheme(false);
+        }
+
+        themeToggleBtn.addEventListener('click', function() {
+            const isDark = document.documentElement.classList.contains('dark');
+            applyTheme(!isDark);
+        });
+
+        /* -------------------------------------------------------------
+           3. ANIMATED COUNTER FOR SCIENTIFIC METRICS
+        ------------------------------------------------------------- */
+        function animateCounters() {
+            const counters = document.querySelectorAll('[data-counter]');
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-counter');
+                let count = 0;
+                const speed = target / 30; // speed duration
+
+                const updateCount = () => {
+                    count += speed;
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count);
+                        setTimeout(updateCount, 40);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                updateCount();
+            });
+        }
+        window.addEventListener('load', animateCounters);
+
+        /* -------------------------------------------------------------
+           4. PUBLICATIONS FILTERING & LIVE SEARCH
+        ------------------------------------------------------------- */
+        let activeCategory = 'all';
+
+        function filterPubs(category) {
+            activeCategory = category;
+            
+            // Update active tab styling
+            document.querySelectorAll('.pub-tab').forEach(tab => {
+                tab.classList.remove('bg-emerald-500', 'text-slate-950', 'font-bold');
+                tab.classList.add('text-slate-600', 'dark:text-slate-400');
+            });
+            event.target.classList.add('bg-emerald-500', 'text-slate-950', 'font-bold');
+            event.target.classList.remove('text-slate-600', 'dark:text-slate-400');
+
+            runPubFilters();
+        }
+
+        document.getElementById('pub-search').addEventListener('input', runPubFilters);
+
+        function runPubFilters() {
+            const query = document.getElementById('pub-search').value.toLowerCase();
+            const cards = document.querySelectorAll('.pub-card');
+
+            cards.forEach(card => {
+                const textMatches = card.innerText.toLowerCase().includes(query);
+                const categoryMatches = (activeCategory === 'all') || (card.getAttribute('data-category') === activeCategory);
+
+                if (textMatches && categoryMatches) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        /* -------------------------------------------------------------
+           5. ADAPTIVE PARTICLE CANVAS BACKGROUND
+        ------------------------------------------------------------- */
+        const canvas = document.getElementById('molecules-canvas');
+        const ctx = canvas.getContext('2d');
+
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+
+        const particles = [];
+        const numParticles = 40;
+
+        for (let i = 0; i < numParticles; i++) {
+            particles.push({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                vx: (Math.random() - 0.5) * 0.35,
+                vy: (Math.random() - 0.5) * 0.35,
+                radius: Math.random() * 2 + 1.2
+            });
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, width, height);
+
+            const isDark = document.documentElement.classList.contains('dark');
+            ctx.fillStyle = isDark ? 'rgba(52, 211, 153, 0.5)' : 'rgba(16, 185, 129, 0.6)';
+            ctx.strokeStyle = isDark ? 'rgba(52, 211, 153, 0.08)' : 'rgba(16, 185, 129, 0.12)';
+
+            for (let i = 0; i < numParticles; i++) {
+                let p = particles[i];
+                p.x += p.vx;
+                p.y += p.vy;
+
+                if (p.x < 0 || p.x > width) p.vx *= -1;
+                if (p.y < 0 || p.y > height) p.vy *= -1;
+
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fill();
+
+                for (let j = i + 1; j < numParticles; j++) {
+                    let p2 = particles[j];
+                    let dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+                    if (dist < 110) {
+                        ctx.beginPath();
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            requestAnimationFrame(draw);
+        }
+
+        draw();
+    </script>
+</body>
+</html>
