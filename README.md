@@ -1,1 +1,0 @@
-# Curiculum_vitae
